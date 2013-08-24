@@ -1,4 +1,7 @@
 *.app
 core
 logs
-
+plugins/clojure
+plugins/node
+plugins/nodejs
+plugins/python
