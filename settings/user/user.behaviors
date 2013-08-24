@@ -17,7 +17,10 @@
      ;; The editor tag is applied to all editors
      :editor [:lt.objs.editor/no-wrap
               :lt.plugins.vim/activate-vim
-              (:lt.objs.style/set-theme "default")]
+              (:lt.objs.style/set-theme "ibdknox")
+              :lt.objs.editor.file/remove-trailing-whitespace]
+
+     :editor.javascript [:lt.plugins.jshint/on-save]
 
      ;; Here we can add behaviors to just clojure editors
      :editor.clojure [(:lt.objs.langs.clj/print-length 1000)]
@@ -28,4 +31,6 @@
 
  ;; You can use the subtract key to remove behavior that may get added by
  ;; another diff
- :- {:app []}}
+ :- {
+     :app [:lt.objs.intro/show-intro]
+     :editor [:lt.objs.editor/hide-line-numbers]}}
