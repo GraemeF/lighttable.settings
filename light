@@ -1,0 +1,17 @@
+ME=`which $0`
+PARENT=`dirname $ME`
+APPNAME=LightTable.app
+LTAPPCLI=$PARENT/$APPNAME/Contents/MacOS/node-webkit
+PWD=`pwd`
+ARGS="$@"
+
+CORRECTED=${ARGS//-/<d>}
+CORRECTED=${CORRECTED// /<s>}
+
+if [ $# != 0 ]; then
+    LTCLI=true $LTAPPCLI "<d><d>dir=$PWD<s>$CORRECTED" &
+else
+    LTCLI=true $LTAPPCLI &
+fi
+
+open -a $APPNAME
